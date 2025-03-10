@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_fiscal_operation_log_tree" model="ir.ui.view">
+        <field name="name">fiscal.operation.log.tree</field>
+        <field name="model">fiscal.operation.log</field>
+        <field name="arch" type="xml">
+            <tree string="Fiscal Operation Logs" decoration-danger="state == 'failed'"
+                decoration-success="state == 'success'">
+                <field name="create_date" />
+                <field name="name" />
+                <field name="operation_type" />
+                <field name="amount" />
+                <field name="file_name" />
+                <field name="user_id" />
+                <field name="pos_session_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_fiscal_operation_log_form" model="ir.ui.view">
+        <field name="name">fiscal.operation.log.form</field>
+        <field name="model">fiscal.operation.log</field>
+        <field name="arch" type="xml">
+            <form string="Fiscal Operation Log">
+                <header>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="operation_type" />
+                            <field name="amount" />
+                            <field name="create_date" />
+                        </group>
+                        <group>
+                            <field name="user_id" />
+                            <field name="pos_session_id" />
+                            <field name="pos_config_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="File Information">
+                            <group>
+                                <field name="file_name" />
+                                <field name="file_content" />
+                            </group>
+                        </page>
+                        <page string="Additional Information">
+                            <group>
+                                <field name="additional_data" />
+                                <field name="error_message" invisible="state != 'failed'" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_fiscal_operation_log_search" model="ir.ui.view">
+        <field name="name">fiscal.operation.log.search</field>
+        <field name="model">fiscal.operation.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Fiscal Operation Logs">
+                <field name="name" />
+                <field name="operation_type" />
+                <field name="file_name" />
+                <field name="user_id" />
+                <field name="pos_session_id" />
+                <separator />
+                <filter string="Failed Operations" name="failed" domain="[('state', '=', 'failed')]" />
+                <filter string="Successful Operations" name="success"
+                    domain="[('state', '=', 'success')]" />
+                <group expand="0" string="Group By">
+                    <filter string="Operation Type" name="group_operation_type"
+                        context="{'group_by': 'operation_type'}" />
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}" />
+                    <filter string="User" name="group_user" context="{'group_by': 'user_id'}" />
+                    <filter string="POS Session" name="group_session"
+                        context="{'group_by': 'pos_session_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_fiscal_operation_log" model="ir.actions.act_window">
+        <field name="name">Fiscal Operation Logs</field>
+        <field name="res_model">fiscal.operation.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_fiscal_operation_log_search" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No fiscal operations logged yet
+            </p>
+            <p>
+                This view shows all fiscal operations performed in your POS sessions.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_fiscal_operation_log"
+        name="Fiscal Operation Logs"
+        parent="point_of_sale.menu_point_of_sale"
+        action="action_fiscal_operation_log"
+        sequence="100" />
+</odoo>

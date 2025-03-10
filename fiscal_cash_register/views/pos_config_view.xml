@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--	updated by zain dev-->
+<!--	<record id="pos_config_view_form_inherit_receipt_download" model="ir.ui.view">-->
+<!--		<field name="name">pos.config.form.inherit.receipt.download</field>-->
+<!--		<field name="model">res.config.settings</field>-->
+<!--		<field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />-->
+<!--		<field name="arch" type="xml">-->
+<!--			<xpath expr="//setting[@id='auto_printing']" position="after">-->
+<!--				&lt;!&ndash; <setting id="auto_download" help="Automatically download receipt as TXT file-->
+<!--				after order completion">-->
+<!--					<field name="auto_download_receipt"/>-->
+<!--				</setting> &ndash;&gt;-->
+<!--				&lt;!&ndash; <setting id="dude_com" help="Url of the DUDE COM server.">-->
+<!--					<field name="dude_com_url"/>-->
+<!--				</setting> &ndash;&gt;-->
+<!--			</xpath>-->
+<!--		</field>-->
+<!--	</record>-->
+
+	<!--    Inherited pos config for adding image field-->
+<!--    updated by zain dev-->
+	<record id="pos_config_view_form" model="ir.ui.view">
+		<field name="name">pos.config.view.form.inherit.point.of.sale.logo
+		</field>
+		<field name="model">pos.config</field>
+		<field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+		<field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <div class="row">
+                    <div class="col-6">
+                        <field name="image" widget='image' class="oe_avatar" />
+                    </div>
+                </div>
+            </xpath>
+		</field>
+	</record>
+
+
+<!--    this view is not visible on frontend and need updation if dynamic chnages   currntly working for default value-->
+	<record id="pos_config_view_form_inherit_fiscal_ops" model="ir.ui.view">
+		<field name="name">pos.config.form.inherit.fiscal.ops</field>
+		<field name="model">pos.config</field>
+		<field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[hasclass('o_settings_container')]" position="inside">
+				<div class="col-12 col-lg-6 o_setting_box" id="fiscal_printer_section">
+					<div class="o_setting_left_pane">
+						<field name="fiscal_printer_enabled" />
+					</div>
+					<div class="o_setting_right_pane">
+						<label for="fiscal_printer_enabled" string="Fiscal Printer" />
+						<div class="text-muted">
+							Enable fiscal printer integration for cash operations
+						</div>
+						<div class="content-group mt16" invisible="not fiscal_printer_enabled">
+							<div class="row">
+								<label string="Output Directory" for="fiscal_printer_output_dir"
+									class="col-lg-3 o_light_label" />
+								<field name="fiscal_printer_output_dir" class="col-lg-9" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+</odoo>
