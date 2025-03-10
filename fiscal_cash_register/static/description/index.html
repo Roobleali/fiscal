@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiscal Cash Register for Romania</title>
+    <style>
+      :root {
+        --primary-color: #00a09d;
+        --secondary-color: #875a7b;
+        --text-color: #4c4c4c;
+        --light-gray: #f5f5f5;
+        --border-color: #e0e0e0;
+        --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        padding: 40px 20px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        opacity: 0.9;
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .logo-placeholder {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 30px;
+        margin-bottom: 30px;
+        border: 1px solid var(--border-color);
+      }
+
+      h2 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--light-gray);
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        color: var(--primary-color);
+        margin: 15px 0 10px;
+        font-size: 1.3rem;
+      }
+
+      ol,
+      ul {
+        margin-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      strong {
+        color: var(--secondary-color);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .feature-card {
+        background-color: var(--light-gray);
+        padding: 20px;
+        border-radius: 8px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      .screenshot {
+        background-color: var(--light-gray);
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        border: 1px dashed var(--border-color);
+        color: #888;
+      }
+
+      .contact-info {
+        background-color: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+
+      .contact-info h3 {
+        margin-top: 0;
+      }
+
+      .contact-info p {
+        margin: 10px 0;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        background-color: var(--light-gray);
+        border-radius: 0 0 8px 8px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-top: 15px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 30px 15px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 20px;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+
+        .logo-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Fiscal Cash Register for Romania</h1>
+        <p>Complete Fiscal Solution with FiscalNet Integration</p>
+        <div class="logo-container">
+          <div class="logo-placeholder">SalutTech</div>
+          <div class="logo-placeholder">FiscalNet</div>
+        </div>
+      </div>
+
+      <section>
+        <h2>📋 Installation Guide</h2>
+        <ol>
+          <li>
+            Install the Fiscal Cash Register module from the Odoo Apps store
+          </li>
+          <li>Enable developer mode in Odoo</li>
+          <li>Go to Apps > Update Apps List</li>
+          <li>Search for "Fiscal Cash Register" and install the module</li>
+          <li>Configure your FiscalNet credentials in the settings</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>⚙️ Configuration Steps</h2>
+        <ol>
+          <li>
+            <strong>Payment Methods Setup:</strong>
+            <ul>
+              <li>
+                Navigate to Point of Sale > Configuration > Payment Methods
+              </li>
+              <li>Configure FiscalNet IDs for each payment method:</li>
+              <li>ID 1: Cash payments</li>
+              <li>ID 2: Card payments</li>
+              <li>Additional IDs as needed for other payment methods</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Tax Configuration:</strong>
+            <ul>
+              <li>Set up tax rates according to Romanian requirements</li>
+              <li>Standard VAT (19%) = Tax ID 1</li>
+              <li>Reduced VAT (9%) = Tax ID 2</li>
+              <li>Configure additional tax rates as needed</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>🛍️ Daily Operations Guide</h2>
+        <ol>
+          <li>
+            <strong>Opening a Session:</strong>
+            <ul>
+              <li>Go to Point of Sale > Dashboard</li>
+              <li>Click "New Session"</li>
+              <li>Enter opening balance (optional)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Processing Sales:</strong>
+            <ul>
+              <li>Add products to the cart</li>
+              <li>Click "Pay" to process payment</li>
+              <li>Fiscal receipt will automatically print</li>
+              <li>Digital copy saved in FiscalNet format</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Cash Management:</strong>
+            <ul>
+              <li>Use "Cash In" for adding money to the register</li>
+              <li>Use "Cash Out" for removing money from the register</li>
+              <li>All transactions are automatically logged</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Closing Procedures:</strong>
+            <ul>
+              <li>Print Z-Report before closing session</li>
+              <li>Verify daily totals</li>
+              <li>Close session</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>📸 Screenshots</h2>
+        <div class="screenshot">Payment Method Configuration Screenshot</div>
+        <div class="screenshot">Tax Configuration Screenshot</div>
+        <div class="screenshot">POS Interface Screenshot</div>
+        <div class="screenshot">Z-Report Example</div>
+      </section>
+
+      <section>
+        <h2>🎯 Key Features</h2>
+        <div class="features">
+          <div class="feature-card">
+            <h3>🔄 FiscalNet Integration</h3>
+            <p>
+              Seamless connection with FiscalNet for reliable fiscal operations
+              and compliance with Romanian regulations.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>🖨️ Wide Device Support</h3>
+            <p>
+              Compatible with Datecs and major cash register brands in Romania.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>💰 Payment Flexibility</h3>
+            <p>
+              Support for multiple payment methods with customizable
+              configuration options.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>📊 Tax Management</h3>
+            <p>
+              Automated tax calculation and reporting compliant with Romanian
+              fiscal requirements.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="contact-info">
+        <h3>Contact SalutTech</h3>
+        <p>🌐 Website: <a href="https://saluttech.ro">saluttech.ro</a></p>
+        <p>
+          📧 Email: <a href="mailto:info@saluttech.ro">info@saluttech.ro</a>
+        </p>
+        <p>📞 Phone: <a href="tel:+40729917823">+40 729 917 823</a></p>
+      </div>
+
+      <footer>
+        <p>
+          Developed by SalutTech - Your Partner in Romanian Fiscal Solutions
+        </p>
+        <a href="https://saluttech.ro" class="btn">Visit Our Website</a>
+      </footer>
+    </div>
+  </body>
+</html>

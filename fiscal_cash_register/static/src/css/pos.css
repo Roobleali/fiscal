@@ -1,0 +1,22 @@
+.pos .fiscal-notification {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.pos .fiscal-notification i {
+  font-size: 18px;
+}
+
+.pos .fiscal-notification .message {
+  font-size: 14px;
+}
